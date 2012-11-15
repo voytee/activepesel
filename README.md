@@ -47,7 +47,7 @@ For the invalid PESEL numbers the ```date_of_birth``` attribute is set to ```nil
 
 You can use it like in the given example
 
-```
+```ruby
 pesel = Activepesel::Pesel.new("82060202039")
 pesel.valid? => true
 pesel.get_personal_data => Activepesel::PersonalData(...)
