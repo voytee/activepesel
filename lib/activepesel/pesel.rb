@@ -4,6 +4,8 @@ module Activepesel
     DIGIT_WEIGHTS = [1, 3, 7, 9, 1, 3 ,7, 9, 1, 3, 1].freeze
 
     attr_reader :number
+
+    delegate :date_of_birth, :sex,  :to => :personal_data
     
     def initialize(number)
       @number = number 
@@ -17,7 +19,7 @@ module Activepesel
       @number.split("").select{|digit| digit.to_i.to_s == digit}.map(&:to_i)
     end
     
-    def get_personal_data
+    def personal_data
       PersonalData.new(self)
     end
 

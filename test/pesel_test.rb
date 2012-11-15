@@ -15,13 +15,19 @@ class PeselTest < ActiveSupport::TestCase
   end
 
   test "Personal data should give 1982.06.02 as date of birth and 1 as sex (male)" do
-    assert_equal Date.new(1982,6,2), Activepesel::Pesel.new("82060202039").get_personal_data.date_of_birth
-    assert_equal 1, Activepesel::Pesel.new("82060202039").get_personal_data.sex
+    assert_equal Date.new(1982,6,2), Activepesel::Pesel.new("82060202039").personal_data.date_of_birth
+    assert_equal 1, Activepesel::Pesel.new("82060202039").personal_data.sex
+    assert_equal 2, Activepesel::Pesel.new("84051902641").personal_data.sex
+  end
+  
+  test "Delegation of personal_data attributes" do
+    assert_equal Date.new(1982,6,2), Activepesel::Pesel.new("82060202039").date_of_birth
+    assert_equal 1, Activepesel::Pesel.new("82060202039").sex
   end
 
   test "Personal data should give NIL as date of birth and 9 (ISO/IEC 5218) as sex (unknown) for a invalid pesel" do
-    assert_equal nil, Activepesel::Pesel.new("123123").get_personal_data.date_of_birth
-    assert_equal 9, Activepesel::Pesel.new("123123").get_personal_data.sex
+    assert_equal nil, Activepesel::Pesel.new("123123").personal_data.date_of_birth
+    assert_equal 9, Activepesel::Pesel.new("123123").personal_data.sex
   end
 
   

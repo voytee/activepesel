@@ -9,7 +9,7 @@ module Activepesel
       def pesel_attr(*attr_names)
         attr_names.each do |attr_name|
           define_method("#{attr_name}_personal_data") do 
-            Pesel.new(send(attr_name)).get_personal_data
+            Pesel.new(send(attr_name)).personal_data
           end
         end
       end
