@@ -9,10 +9,11 @@ Activepesel library is available as a gem. In your Gemfile add:
 gem 'activepesel'
 ```
 
-#In your model:
+#In your model
 
 ```ruby
 class User < ActiveRecord::Base
+
   attr_accessible :dads_pesel, :mums_pesel
   
   # this will give the access to methods: 
@@ -43,7 +44,7 @@ Sex attribute can take 3 values. 1 - for men, 2 - for women, 9 - not applicable 
 
 For the invalid PESEL numbers the ```date_of_birth``` attribute is set to ```nil``` and the ```sex``` is 9 - not applicable.
 
-# Using Activepesel outside ActiveModel / ActiveRecord models.
+# Using Activepesel outside ActiveModel / ActiveRecord models
 
 You can use it like in the given example
 
