@@ -39,6 +39,12 @@ The method returns ```Activepesel::PersonalData``` object which has the followin
 date_of_birth:Date
 sex:Integer
 ```
+See the example:
+
+```ruby
+User.find(1).dads_pesel_personal_data => Activepesel::PersonalData(...)
+```
+
 
 Sex attribute can take 3 values. 1 - for men, 2 - for women, 9 - not applicable ([ISO/IEC 5218](http://en.wikipedia.org/wiki/ISO/IEC_5218))
 
