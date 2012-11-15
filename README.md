@@ -31,9 +31,9 @@ end
 
 # Activepesel::PersonalData object
 
-When using ```attr_pesel :name_of_attr``` in your model you will get new instance method available: ```rubyname_of_attr_personal_data```.
+When using ```attr_pesel :name_of_attr``` in your model you will get new instance method available: ```name_of_attr_personal_data```.
 
-The method returns ```rubyActivepesel::PersonalData``` object which has the following attributes:
+The method returns ```Activepesel::PersonalData``` object which has the following attributes:
 
 ```
 date_of_birth:Date

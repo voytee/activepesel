@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email       = ["wpasternak@gmail.com"]
   s.homepage    = "http://github.com/voytee/activepesel"
   s.summary     = %q{A simple, ORM agnostic, Ruby 1.9 compatible PESEL validator and personal data extractor for Rails 3, based on ActiveModel.}
-  s.description = %q{A simple, ORM agnostic, Ruby 1.9 compatible PESEL validator and personal data extractor for Rails 3, based on ActiveModel.}
+  s.description = %q{A simple, ORM agnostic, Ruby 1.9 compatible PESEL (polish personal id number) validator and personal data extractor for Rails 3, based on ActiveModel.}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = Dir["test/**/*"]
