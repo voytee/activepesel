@@ -12,6 +12,10 @@ invalid_numbers:
   mums_pesel: "12345678901"
   dads_pesel: "01234567890"
 
+blank:
+  mums_pesel: ""
+  dads_pesel:
+
 18xx:
   mums_pesel: "01852014407"
   dads_pesel: "01852092911"

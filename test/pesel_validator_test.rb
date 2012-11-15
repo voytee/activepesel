@@ -22,4 +22,8 @@ class PeselValidatorTest < ActiveSupport::TestCase
     assert_equal true, users('22xx').valid?
   end
 
+  test "Record with blank pesel should be valid" do
+    assert_equal true, users('blank').valid?
+  end
+
 end

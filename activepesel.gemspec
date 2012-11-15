@@ -7,16 +7,17 @@ require "activepesel/version"
 Gem::Specification.new do |s|
   s.name        = "activepesel"
   s.version     = Activepesel::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Activepesel."
-  s.description = "TODO: Description of Activepesel."
+  s.platform    = Gem::Platform::RUBY	
+  s.authors     = ["voytee"]
+  s.email       = ["wpasternak@gmail.com"]
+  s.homepage    = "http://github.com/voytee/activepesel"
+  s.summary     = %q{A simple, ORM agnostic, Ruby 1.9 compatible PESEL validator and personal data extractor for Rails 3, based on ActiveModel.}
+  s.description = %q{A simple, ORM agnostic, Ruby 1.9 compatible PESEL validator and personal data extractor for Rails 3, based on ActiveModel.}
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = Dir["test/**/*"]
+  s.require_paths = ["lib"]
 
   s.add_dependency "rails", "~> 3.2.9"
-
   s.add_development_dependency "sqlite3"
 end
