@@ -52,7 +52,7 @@ For the invalid PESEL numbers the ```date_of_birth``` attribute is set to ```nil
 
 # Saving personal data into database
 
-It is a common practise that you want to save the personal data extracted from the PESEL number to be able for example to query your records against all female persons. To do this you can use ActiveModel callbacks like in the example:
+It is a common practice that you want to save the personal data extracted from the PESEL number to be able for example to query your records against all female persons. To do this you can use ActiveModel callbacks like in the example:
 
 ```ruby
 class User < ActiveRecord::Base
