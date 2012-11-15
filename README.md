@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   
   # this will give the access to methods: 
   # dads_pesel_personal_data, mums_pesel_personal_data
-  pesel_attr      :dads_pesel, :mums_pesel
+  pesel_attr :dads_pesel, :mums_pesel
 
   # keep in mind that pesel validator is not performing a presence test
   # so you need another (standard) validation for this one
@@ -40,7 +40,7 @@ date_of_birth:Date
 sex:Integer
 ```
 
-Sex attribute can take 3 values. 1 - for men, 2 - for women, 9 - unknown ([ISO/IEC 5218][http://en.wikipedia.org/wiki/ISO/IEC_5218])
+Sex attribute can take 3 values. 1 - for men, 2 - for women, 9 - unknown ([ISO/IEC 5218](http://en.wikipedia.org/wiki/ISO/IEC_5218))
 
 
 
