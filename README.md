@@ -3,16 +3,15 @@
 A simple PESEL (polish personal ID number) validator for Rails 3. Compatible with Ruby 1.8.7, 1.9.2 and
 Rubinius 1.2.2.
 
-activepesel is available as a gem. In your Gemfile add
+Activepesel library is available as a gem. In your Gemfile add:
 
-```
+```ruby
 gem 'activepesel'
 ```
 
 #In your model:
 
-```
-
+```ruby
 class User < ActiveRecord::Base
   attr_accessible :dads_pesel, :mums_pesel
   
@@ -35,7 +34,7 @@ When using ```attr_pesel :name_of_attr``` in your model you will get new instanc
 
 The method returns ```Activepesel::PersonalData``` object which has the following attributes:
 
-```
+```ruby
 date_of_birth:Date
 sex:Integer
 ```
