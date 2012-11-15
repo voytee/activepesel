@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validates :dads_pesel, :presence => true
   validates :dads_pesel, :pesel    => true
   validates :mums_pesel, :pesel    => true
-  # pesel validator returns standard rails :invalid key error mesage
+  # pesel validator returns standard rails :invalid key error message
 
 end
 ```
