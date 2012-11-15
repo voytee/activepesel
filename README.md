@@ -1,4 +1,4 @@
-# activepesel
+# Activepesel
 
 A simple PESEL (polish personal ID number) validator for Rails 3. Compatible with Ruby 1.8.7, 1.9.2 and
 Rubinius 1.2.2.
