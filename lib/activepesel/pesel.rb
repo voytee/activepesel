@@ -20,7 +20,7 @@ module Activepesel
     end
     
     def personal_data
-      PersonalData.new(self)
+      PersonalData.new(self) if @number
     end
 
     private

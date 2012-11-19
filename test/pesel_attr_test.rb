@@ -54,4 +54,9 @@ class PeselAttrTest < ActiveSupport::TestCase
     assert_equal 2, users("22xx").mums_pesel_personal_data.sex 
   end
 
+  test "Personal data should be nil for nil Pesel attributes" do
+    user = User.create(:mums_pesel => nil)
+    assert_equal nil, user.mums_pesel_personal_data
+  end
+
 end
