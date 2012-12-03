@@ -87,6 +87,25 @@ pesel.personal_data => Activepesel::PersonalData(...)
 pesel.date_of_birth => Wed, 02 Jun 1982
 pesel.sex => 1
 ```  
+# Generating PESEL numbers
+
+Since version 0.1.0 you can generate valid PESEL numbers for a given date of birth and sex of a person.
+
+To generate one randomly picked PESEL number for let's say a male born on November 3rd 1975:
+
+```ruby
+# picks one random number for the given personal data
+Pesel.generate(:one, :sex => 1, :date_of_birth => Date.new(1975,11,3))
+````
+
+To generate all (5000) PESEL numbers valid for a person of a given sex and date of birth for example a female born on May 20th 2010:
+
+```ruby
+# returns all possible numbers for the given personal data in a lexicographic order
+Pesel.generate(:all, :sex => 2, :date_of_birth => "2010-05-20") # notice that you can pass a stringified date.
+```
+
+
 
 
 
