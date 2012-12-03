@@ -1,12 +1,16 @@
 module Activepesel
   class Pesel
-
-    DIGIT_WEIGHTS = [1, 3, 7, 9, 1, 3 ,7, 9, 1, 3, 1].freeze
-
-    attr_reader :number
-
-    delegate :date_of_birth, :sex,  :to => :personal_data
     
+    class << self
+      delegate :generate, :to => "Activepesel::PeselGenerator".to_sym
+    end
+    
+    DIGIT_WEIGHTS = [1, 3, 7, 9, 1, 3 ,7, 9, 1, 3, 1].freeze
+    
+    attr_reader :number
+    
+    delegate :date_of_birth, :sex,  :to => :personal_data
+
     def initialize(number)
       @number = number 
     end

@@ -30,5 +30,37 @@ class PeselTest < ActiveSupport::TestCase
     assert_equal 9, Activepesel::Pesel.new("123123").personal_data.sex
   end
 
+  test "Pesel.generate :all should return 5000 valid male pesel numbers" do
+    pesels = Activepesel::Pesel.generate(:all, :sex => 1, :date_of_birth => Date.new(1982,6,2))
+    assert_equal 5000, pesels.size
+    assert_equal true, !pesels.map(&:valid?).include?(false)
+    assert_equal nil,  pesels.map(&:sex).detect{|t| t!=1} 
+    assert_equal nil,  pesels.map(&:date_of_birth).detect{|t| t!=Date.new(1982,6,2)}
+  end
+
+  test "Pesel.generate :all should return 5000 valid female pesel numbers" do
+    pesels = Activepesel::Pesel.generate(:all, :sex => 2, :date_of_birth => Date.new(1982,6,2))
+    assert_equal 5000, pesels.size
+    assert_equal true, !pesels.map(&:valid?).include?(false) 
+    assert_equal nil,  pesels.map(&:sex).detect{|t| t!=2}
+    assert_equal nil,  pesels.map(&:date_of_birth).detect{|t| t!=Date.new(1982,6,2)}
+  end
+
+  test "Pesel.generate :one should return one male randomly picked from the pesel pool pesel number" do
+    pesel = Activepesel::Pesel.generate(:one, :sex => 1, :date_of_birth => Date.new(1982,6,2))
+    assert_equal true, pesel.valid?
+    assert_equal 1, pesel.sex
+    assert_equal Date.new(1982,6,2), pesel.date_of_birth
+  end
+
+  test "Pesel.generate :one should return one female randomly picked from the pesel pool pesel number" do
+    pesel = Activepesel::Pesel.generate(:one, :sex => 2, :date_of_birth => Date.new(1982,6,2))
+    assert_equal true, pesel.valid?
+    assert_equal 2, pesel.sex
+    assert_equal Date.new(1982,6,2), pesel.date_of_birth
+  end
+
+
+
   
 end
