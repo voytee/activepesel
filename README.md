@@ -97,15 +97,21 @@ To generate one randomly picked PESEL number for let's say a male born on Novemb
 
 ```ruby
 # picks one random number for the given personal data
-Pesel.generate(:one, :sex => 1, :date_of_birth => Date.new(1975,11,3))
+Activepesel::Pesel.generate(:one, :sex => 1, :date_of_birth => Date.new(1975,11,3))
 ````
 
 To generate all (5000) PESEL numbers valid for a person of a given sex and date of birth for example a female born on May 20th 2010:
 
 ```ruby
 # returns all possible numbers for the given personal data in a lexicographic order
-Pesel.generate(:all, :sex => 2, :date_of_birth => "2010-05-20") # notice that you can pass a stringified date.
+# notice that you can pass a stringified date.
+Activepesel::Pesel.generate(:all, :sex => 2, :date_of_birth => "2010-05-20")
 ```
+
+# Copyright
+
+Copyright (c) 2012 Wojciech Pasternak released under the MIT license
+
 
 
 
