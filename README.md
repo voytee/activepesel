@@ -108,6 +108,10 @@ To generate all (5000) PESEL numbers valid for a person of a given sex and date 
 Activepesel::Pesel.generate(:all, :sex => 2, :date_of_birth => "2010-05-20")
 ```
 
+#Donations
+If you find activepesel usefull and want to buy me a beer, please
+<a class="coinbase-button" data-code="8c7a1c046dab98cbea2c96caa3f2a98b" data-button-style="donation_large" href="https://coinbase.com/checkouts/8c7a1c046dab98cbea2c96caa3f2a98b">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
+
 # Copyright
 
 Copyright (c) 2012 Wojciech Pasternak released under the MIT license
