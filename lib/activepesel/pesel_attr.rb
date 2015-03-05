@@ -17,4 +17,6 @@ module Activepesel
   end
 end
 
-ActiveRecord::Base.send :include, Activepesel::PeselAttr
+if defined?(ActiveRecord::Base)
+  ActiveRecord::Base.send :include, Activepesel::PeselAttr
+end
