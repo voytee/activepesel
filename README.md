@@ -1,6 +1,6 @@
 # Activepesel
 
-A simple PESEL (polish personal ID number) validator and personal data extractor for Rails 3. Compatible with Ruby 1.9 (Tested with 1.9.3)
+A simple PESEL (polish personal ID number) validator and personal data extractor for Rails.
 
 ![](http://dl.dropbox.com/s/27p6gra4p0c8q0m/pesel.jpg)
 
