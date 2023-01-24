@@ -1,6 +1,5 @@
 # Activepesel
 
-----------
 [![Gem Version](https://badge.fury.io/rb/activepesel.svg)](https://badge.fury.io/rb/activepesel)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
@@ -8,13 +7,15 @@ A simple PESEL (polish personal ID number) validator (ActiveModel based), genera
 
 ![](./media/id.jpg)
 
+----------
+
 Activepesel library is available as a gem. In your Gemfile add:
 
 ```ruby
 gem 'activepesel'
 ```
 
-#In your model:
+# In your model:
 
 ```ruby
 class User < ActiveRecord::Base
