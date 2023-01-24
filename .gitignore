@@ -1,21 +1,14 @@
-.bundle/
-log/*.log
-pkg/
-test/dummy/db/*.sqlite3
-test/dummy/log/*.log
-test/dummy/tmp/
-test/dummy/.sass-cache
+# bundler
+.bundle
+Gemfile.lock
+Gemfile.local
+vendor/
 
-auto-save-list
-custom.el
-url/
-.org-id-locations
-\#*
-org-mode-config.el
-*~
-.#*
-\#*\#
-*.log
+# rbenv
+.ruby-version
+
+# byebug
+.byebug_history
+
+# For MacOS:
 .DS_Store
-org-clock-save.el
-emacs-config.el

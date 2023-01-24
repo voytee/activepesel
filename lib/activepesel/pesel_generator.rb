@@ -2,6 +2,7 @@
 
 module Activepesel
   class PeselGenerator
+    DATE_RANGE = (Date.new(1800, 1, 1)..Date.new(2299, 12, 31)).freeze
     SEX_CODES = {
       1 => [1, 3, 5, 7, 9],
       2 => [0, 2, 4, 6, 8],
@@ -21,9 +22,7 @@ module Activepesel
       private
 
       def validate_params(date_of_birth, sex)
-        if !date_of_birth.respond_to?(:to_date) || !(Date.new(1800, 1,
-                                                              1)..Date.new(2299, 12,
-                                                                           31)).cover?(date_of_birth.to_date)
+        if !date_of_birth.respond_to?(:to_date) || !DATE_RANGE.cover?(date_of_birth.to_date)
           raise(::ArgumentError, 'Date of birth can only be from range: (1800-01-01..2299-12-31)')
         end
 
@@ -67,8 +66,7 @@ module Activepesel
       def date_of_birth_code(date_of_birth)
         [
           year_code(date_of_birth.to_date.year),
-          month_code(date_of_birth.to_date.year,
-                     date_of_birth.to_date.month),
+          month_code(date_of_birth.to_date.year, date_of_birth.to_date.month),
           day_code(date_of_birth.to_date.day),
         ].join
       end
