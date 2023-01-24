@@ -3,6 +3,7 @@
 Gemfile.lock
 Gemfile.local
 vendor/
+pkg/
 
 # rbenv
 .ruby-version

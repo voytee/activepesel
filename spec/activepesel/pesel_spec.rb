@@ -25,9 +25,15 @@ RSpec.describe Activepesel::Pesel do
     end
   end
 
-  describe '.generate' do
+  describe '.generate_all' do
     it 'responds to the generate method' do
-      expect(described_class).to respond_to :generate
+      expect(described_class).to respond_to :generate_all
+    end
+  end
+
+  describe '.generate_one' do
+    it 'responds to the generate method' do
+      expect(described_class).to respond_to :generate_one
     end
   end
 

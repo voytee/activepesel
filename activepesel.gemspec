@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://github.com/voytee/activepesel'
   s.summary     = 'A simple, ORM agnostic, PESEL validator and personal data extractor'
   s.description = 'A simple, ORM agnostic, PESEL (polish personal id number) validator and personal data extractor'
-  s.files         = `git ls-files`.split('\n')
+  s.files         = `git ls-files`.split("\n")
   s.require_paths = ['lib']
   s.add_dependency 'activesupport', '>= 3.0'
   s.metadata['rubygems_mfa_required'] = 'true'

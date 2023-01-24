@@ -6,7 +6,7 @@ require 'active_support/core_ext'
 module Activepesel
   class Pesel
     class << self
-      delegate :generate, to: :'Activepesel::PeselGenerator'
+      delegate :generate_all, :generate_one, to: :'Activepesel::PeselGenerator'
     end
 
     DIGIT_WEIGHTS = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 1].freeze
