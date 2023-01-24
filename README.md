@@ -1,8 +1,8 @@
 # Activepesel
 
-A simple PESEL (polish personal ID number) validator and personal data extractor for Rails.
+A simple PESEL (polish personal ID number) validator (ActiveModel based), generator and personal data extractor.
 
-![](http://dl.dropbox.com/s/27p6gra4p0c8q0m/pesel.jpg)
+![](./media/id.jpg)
 
 Activepesel library is available as a gem. In your Gemfile add:
 
@@ -14,20 +14,20 @@ gem 'activepesel'
 
 ```ruby
 class User < ActiveRecord::Base
+  # you have to explicitly include it since version 0.2.0
+  include Activepesel::PeselAttr
 
-  attr_accessible :dads_pesel, :mums_pesel
-  
+  # let's say we have dads_pesel and mums_pesel columns in the database
   # this will give the access to methods: 
   # dads_pesel_personal_data, mums_pesel_personal_data
   pesel_attr :dads_pesel, :mums_pesel
 
   # keep in mind that pesel validator is not performing a presence test
   # so you need another (standard) validation for this one
-  validates :dads_pesel, :presence => true
-  validates :dads_pesel, :pesel    => true
-  validates :mums_pesel, :pesel    => true
+  validates :dads_pesel, presence: true
+  validates :dads_pesel, pesel: true
+  validates :mums_pesel, pesel: true
   # pesel validator returns standard rails :invalid key error message
-
 end
 ```
 
@@ -38,8 +38,8 @@ When using ```attr_pesel :name_of_attr``` in your model you will get new instanc
 The method returns ```Activepesel::PersonalData``` object which has the following attributes:
 
 ```ruby
-date_of_birth:Date
-sex:Integer
+date_of_birth: Date
+sex: Integer
 ```
 See the example:
 
@@ -54,23 +54,24 @@ For the invalid PESEL numbers the ```date_of_birth``` attribute is set to ```nil
 
 # Saving personal data into database
 
-It is a common practice that you want to save the personal data extracted from the PESEL number to be able for example to query your records against all female persons. To do this you can use ActiveModel callbacks like in the example:
+It is a common practice that you'd want to save the personal data extracted from the PESEL number to be able for example to query your records against all female persons. To do this you can do something like this:
 
 ```ruby
 class User < ActiveRecord::Base
+  include Activepesel::PeselAttr
 
-  attr_accessible :pesel
   pesel_attr :pesel
   
-  validates :pesel, :pesel => true
+  validates :pesel, pesel: true
 
+  # we all don't like callbacks but for the sake of this simple example we can live with it
   before_save :set_personal_data
 
   private
 
   def set_personal_data
     self.date_of_birth = pesel_personal_data.date_of_birth
-    self.sex           = pesel_personal_data.sex
+    self.sex = pesel_personal_data.sex
   end
   
 end
@@ -82,7 +83,7 @@ end
 You can use it like in the given example
 
 ```ruby
-pesel = Activepesel::Pesel.new("82060202039")
+pesel = Activepesel::Pesel.new('82060202039')
 pesel.valid? => true
 pesel.personal_data => Activepesel::PersonalData(...)
 # or even quicker
@@ -97,7 +98,7 @@ To generate one randomly picked PESEL number for let's say a male born on Novemb
 
 ```ruby
 # picks one random number for the given personal data
-Activepesel::Pesel.generate(:one, :sex => 1, :date_of_birth => Date.new(1975,11,3))
+Activepesel::Pesel.generate_one(sex: 1, date_of_birth: Date.new(1975,11,3))
 ````
 
 To generate all (5000) PESEL numbers valid for a person of a given sex and date of birth for example a female born on May 20th 2010:
@@ -105,16 +106,12 @@ To generate all (5000) PESEL numbers valid for a person of a given sex and date 
 ```ruby
 # returns all possible numbers for the given personal data in a lexicographic order
 # notice that you can pass a stringified date.
-Activepesel::Pesel.generate(:all, :sex => 2, :date_of_birth => "2010-05-20")
+Activepesel::Pesel.generate_all, sex: 2, date_of_birth: '2010-05-20')
 ```
-
-#Donations
-If you find activepesel usefull and want to buy me a beer, please
-<a class="coinbase-button" data-code="8c7a1c046dab98cbea2c96caa3f2a98b" data-button-style="donation_large" href="https://coinbase.com/checkouts/8c7a1c046dab98cbea2c96caa3f2a98b">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
 
 # Copyright
 
-Copyright (c) 2012 Wojciech Pasternak released under the MIT license
+Copyright (c) 2012 - 2023 Wojciech Pasternak released under the MIT license
 
 
 
