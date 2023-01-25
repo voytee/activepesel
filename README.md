@@ -85,7 +85,7 @@ end
 
 # Using Activepesel outside ActiveModel / ActiveRecord models
 
-You can use it like in the given example
+You can use it like in the given example:
 
 ```ruby
 pesel = Activepesel::Pesel.new('82060202039')
