@@ -1,6 +1,6 @@
 # Activepesel
 
-[![Gem Version](https://badge.fury.io/rb/activepesel.svg?v=0.2.0)](https://badge.fury.io/rb/activepesel)
+[![Gem Version](https://badge.fury.io/rb/activepesel.svg?)](https://badge.fury.io/rb/activepesel)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
 A simple PESEL (polish personal ID number) validator (ActiveModel based), generator and personal data extractor.
