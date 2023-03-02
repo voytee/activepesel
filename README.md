@@ -111,7 +111,7 @@ To generate all (5000) PESEL numbers valid for a person of a given sex and date 
 ```ruby
 # returns all possible numbers for the given personal data in a lexicographic order
 # notice that you can pass a stringified date.
-Activepesel::Pesel.generate_all, sex: 2, date_of_birth: '2010-05-20')
+Activepesel::Pesel.generate_all(sex: 2, date_of_birth: '2010-05-20')
 ```
 
 # Copyright
